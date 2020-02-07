@@ -1,5 +1,20 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import Login from '../Components/Login/login'
+import {BrowserRouter, Route} from 'react-router-dom'
+import Login from './Components/Login/login'
+import Dashboard from './Components/Dashboard/dashboard'
 
-ReactDOM.render(<Login />, document.getElementById("App"));
+class App extends Component {
+    render() {
+        return(
+            <BrowserRouter>
+                <div>
+                    <Route path="/" exact component={Login} />
+                    <Route path="/dashboard" exact component={Dashboard} />
+                </div>
+            </BrowserRouter>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById("App"));
