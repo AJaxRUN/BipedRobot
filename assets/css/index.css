@@ -1,0 +1,13 @@
+html {
+    height: 100%;
+    background: url("../images/bg.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background:rgba(21, 27, 84,1); */
+    font-family: 'Dosis', sans-serif;
+    color: white;
+    margin: 0;
+    width: 100%;
+    
+}
