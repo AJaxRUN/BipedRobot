@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     return(
-        <p>Successss</p>
+        <h1 style={{fontSize:50}}>This is  BOT-CR34</h1>
     )
 }
 

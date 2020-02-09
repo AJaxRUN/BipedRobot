@@ -5,9 +5,18 @@ const axios = require('axios')
 class Login extends Component {
     submitHandler = (e) => {
             e.preventDefault();
-            axios.post("http://127.0.0.1:5000/",{pass:e.target.value}).then(response =>{
-                if(response === "success")
-                    this.props.history.push("/dasboard");
+            axios({
+                method: 'POST',
+                // headers: {
+                //     'Content-Type': 'multipart/form-data'
+                //   },
+                url: 'http://127.0.0.1:5000/validate',
+                data: {
+                  pass: document.getElementById("password").value
+                }
+              }).then(response =>{
+                if(response.data === "success")
+                    this.props.history.push("/dashboard");
                 else
                     alert("Incorrect password");
             });
@@ -19,7 +28,7 @@ class Login extends Component {
                     <form onSubmit={this.submitHandler}>
                         <h1 style={{fontSize:50}}>ACCESS BOT-CR34</h1><hr />
                         <h4 style={{fontSize:30}}>Enter password to initiate connection</h4>
-                        <input type="password" />
+                        <input id="password" type="password" />
                     </form>
                 </div>
             </div>
