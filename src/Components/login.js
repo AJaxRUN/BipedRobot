@@ -1,8 +1,20 @@
 import React, {Component} from 'react'
-import '../../../assets/css/login.css'
+import '../../assets/css/login.css'
 const axios = require('axios')
 
 class Login extends Component {
+    myStyle = {
+        color : "black",
+        fontSize: "xx-large",
+        height: "25px",
+        resize: "none",
+        width: "40%",
+        backgroundColor:" rgb(255, 255, 255)",
+        padding: "1%",
+        textAlign: "center",
+        borderRadius: "50px",
+        border:"none"
+        }
     submitHandler = (e) => {
             e.preventDefault();
             axios({
@@ -23,12 +35,12 @@ class Login extends Component {
     }
     render = () => {
         return(
-            <div className="container">
-                <div className="content">
+            <div className="myContainer">
+                <div className="myContent">
                     <form onSubmit={this.submitHandler}>
-                        <h1 style={{fontSize:50}}>ACCESS BOT-CR34</h1><hr />
-                        <h4 style={{fontSize:30}}>Enter password to initiate connection</h4>
-                        <input id="password" type="password" />
+                        <h1>ACCESS BOT-CR34</h1><hr />
+                        <h4 style={{fontSize:30}}>Enter password to initiate connection</h4><br />
+                        <input style={this.myStyle} id="password" type="password" autoFocus/>
                     </form>
                 </div>
             </div>

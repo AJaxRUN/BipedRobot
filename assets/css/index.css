@@ -9,5 +9,14 @@ html {
     color: white;
     margin: 0;
     width: 100%;
-    
+    overflow: hidden;
+}
+
+.app {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+h1 {
+    font-size: 50;
 }
