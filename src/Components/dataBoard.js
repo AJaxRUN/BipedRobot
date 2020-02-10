@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
 
 class DataBoard extends Component {
-
+            
     render () {
         return(
-            <div className="card z-depth-4" style={{textAlign:"center", background:"black", borderRadius:"5%", maxHeight:"450px"}}>
-                <div className="row">
+            <div className="card z-depth-4" style={{color:"white",textAlign:"center", background:"black", borderRadius:"5%", maxHeight:"400px"}}>
+                <div className="row" style={{margin:"0"}}>
                     <span className="col s6 card-title" style={{marginTop:"20px"}}>ACCELEROMETER</span>
                     <span className="col s6 card-title" style={{marginTop:"20px"}}>ACTION</span>
                     <br></br>
-                    <table class="col s6 centered">
+                    <table className="col s6 centered">
                             <thead>
                                 <tr>
                                     <th>X axis</th>
@@ -18,9 +18,9 @@ class DataBoard extends Component {
                                 </tr>
                                 </thead></table>
                 </div>
-                <div className="row" style={{overflowY:"scroll",maxHeight:"320px"}}>
+                <div className="row" style={{overflowY:"scroll",maxHeight:"270px",margin:"0"}}>
                         <div className="col s6">
-                        <table class="centered">
+                        <table className="centered" style={{margin:"0"}}>
                             <tbody>
                             <tr>
                                 <td>Alvin</td>
