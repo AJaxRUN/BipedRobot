@@ -3,6 +3,14 @@ import '../../assets/css/login.css'
 const axios = require('axios')
 
 class Login extends Component {
+    state = {
+        mytext:"Enter password to initiate connection"
+    }
+    onChangeHandler = ()=> {
+        this.setState({
+            mytext:"Enter password to initiate connection"
+        });
+    }
     myStyle = {
         color : "black",
         fontSize: "xx-large",
@@ -27,10 +35,14 @@ class Login extends Component {
                   pass: document.getElementById("password").value
                 }
               }).then(response =>{
-                if(response.data === "success")
+                if(response.data === "success") {
                     this.props.history.push("/dashboard");
-                else
-                    alert("Incorrect password");
+                }
+                else {
+                    this.setState({
+                        mytext:"Incorrect Password"
+                    });
+                }
             });
     }
     render = () => {
@@ -39,8 +51,8 @@ class Login extends Component {
                 <div className="myContent">
                     <form onSubmit={this.submitHandler}>
                         <h1>ACCESS BOT-CR34</h1><hr />
-                        <h4 style={{fontSize:30}}>Enter password to initiate connection</h4><br />
-                        <input style={this.myStyle} id="password" type="password" autoFocus/>
+                        <h4 style={{fontSize:30}}>{this.state.mytext}</h4><br />
+                        <input onChange={this.onChangeHandler} style={this.myStyle} id="password" type="password" autoFocus/>
                     </form>
                 </div>
             </div>

@@ -3,8 +3,10 @@ import axios from 'axios'
 import "../../assets/css/dashboard.css"
 import MainComponent from './mainComponent'
 import DataBoard from "./dataBoard"
+import Graph from "./graph"
 import "../../assets/css/materialize/js/materialize"
 import "../../assets/css/materialize/css/materialize.css"
+
 const Dashboard = (props) => {
     // let data = <h1 style={{fontSize:50}}>Please log in first!</h1>
     // axios({
@@ -31,7 +33,7 @@ const Dashboard = (props) => {
                     <MainComponent />
                 </div>
                 <div className="col s4">
-                    <MainComponent />
+                    <Graph />
                 </div>
             </div>
       </div>

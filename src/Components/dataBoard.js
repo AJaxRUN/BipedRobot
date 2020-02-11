@@ -22,42 +22,39 @@ class DataBoard extends Component {
                         <div className="col s6">
                         <table className="centered" style={{margin:"0"}}>
                             <tbody>
-                            <tr>
-                                <td>Alvin</td>
-                                <td>Eclair</td>
-                                <td>$0.87</td>
-                            </tr>
-                            <tr>
-                                <td>Alan</td>
-                                <td>Jellybean</td>
-                                <td>$3.76</td>
-                            </tr>
-                            <tr>
-                                <td>Jonathan</td>
-                                <td>Lollipop</td>
-                                <td>$7.00</td>
-                            </tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
+                            <tr><td>22</td><td>-47</td><td>120.7</td></tr>
                         </tbody>
                     </table>
                     </div>
                     <div className="col s6">
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
-                            <p>Some action by NN</p>
+                    <table className="centered" style={{margin:"0"}}>
+                            <tbody>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+                            <tr><td>Some action by RL algo</td></tr>
+
+                             </tbody>
+                         </table>
                     </div>
                 </div>
             </div>

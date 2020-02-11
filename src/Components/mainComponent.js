@@ -34,8 +34,12 @@ class MainComponent extends Component {
     render() {
         return(
             <div className="card" style={{borderRadius: "5%"}}>
-                <div className="card-image">
-                    <img src="https://picsum.photos/seed/picsum/200/100" />
+                <div className="card-image" style={{color: "black",textAlign:"center",padding:"1%"}}>
+                    <h4>Status Information</h4>
+                    <div style={{textAlign:"left"}}>
+                        <h6>Connection Information...</h6>
+                        <h6>State Information...</h6>
+                    </div>
                     <span className="card-title">Body</span>
         <button onClick={this.switchBtnHandler} className={this.switchBtnCls.join(" ")}>{!this.state.switchBtn?"OFF":"ON"}</button>
         {/* <div className="fixed-action-btn">
