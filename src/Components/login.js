@@ -1,17 +1,22 @@
-import React, {Component} from 'react'
+import React, { useState} from 'react'
+import {withRouter} from 'react-router-dom'
 import '../../assets/css/login.css'
 const axios = require('axios')
 
-class Login extends Component {
-    state = {
+const Login = (props) => {
+    let [state, setLogin] = useState({
+        login: true,
         mytext:"Enter password to initiate connection"
+    });
+    let onChangeHandler = ()=> {
+        if(!state.login) {
+            setLogin({
+                login: true,
+                mytext:"Enter password to initiate connection"
+            });
+        }
     }
-    onChangeHandler = ()=> {
-        this.setState({
-            mytext:"Enter password to initiate connection"
-        });
-    }
-    myStyle = {
+    let myStyle = {
         color : "black",
         fontSize: "xx-large",
         height: "25px",
@@ -23,7 +28,7 @@ class Login extends Component {
         borderRadius: "50px",
         border:"none"
         }
-    submitHandler = (e) => {
+    let submitHandler = (e) => {
             e.preventDefault();
             axios({
                 method: 'POST',
@@ -36,27 +41,26 @@ class Login extends Component {
                 }
               }).then(response =>{
                 if(response.data === "success") {
-                    this.props.history.push("/dashboard");
+                    props.history.push("/dashboard");
                 }
                 else {
-                    this.setState({
+                    setLogin({
+                        login:false,
                         mytext:"Incorrect Password"
                     });
                 }
             });
     }
-    render = () => {
         return(
             <div className="myContainer">
                 <div className="myContent">
-                    <form onSubmit={this.submitHandler}>
+                    <form onSubmit={submitHandler}>
                         <h1>ACCESS BOT-CR34</h1><hr />
-                        <h4 style={{fontSize:30}}>{this.state.mytext}</h4><br />
-                        <input onChange={this.onChangeHandler} style={this.myStyle} id="password" type="password" autoFocus/>
+                        <h4 style={{fontSize:30}}>{state.mytext}</h4><br />
+                        <input onChange={onChangeHandler} style={myStyle} id="password" type="password" autoFocus/>
                     </form>
                 </div>
             </div>
         );
-    }
 }
-export default Login;
+export default withRouter(Login);

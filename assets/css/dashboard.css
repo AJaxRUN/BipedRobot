@@ -33,3 +33,11 @@
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
+
+th {
+  color: gold;
+}
+
+span {
+  color:rgb(255, 147, 165);
+}
