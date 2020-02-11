@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom'
 import '../../assets/css/login.css'
 const axios = require('axios')
 
-const Login = (props) => {
+const Login = props => {
     let [state, setLogin] = useState({
         login: true,
         mytext:"Enter password to initiate connection"
@@ -63,4 +63,4 @@ const Login = (props) => {
             </div>
         );
 }
-export default withRouter(Login);
+export default React.memo(withRouter(Login));

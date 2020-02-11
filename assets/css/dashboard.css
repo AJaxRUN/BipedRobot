@@ -41,3 +41,7 @@ th {
 span {
   color:rgb(255, 147, 165);
 }
+
+tr:nth-child(even) {
+  background-color: rgb(33, 40, 46);
+}

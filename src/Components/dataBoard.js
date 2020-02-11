@@ -10,13 +10,18 @@ class DataBoard extends Component {
                     <span className="col s6 card-title" style={{marginTop:"20px"}}>ACTION</span>
                     <br></br>
                     <table className="col s6 centered">
-                            <thead>
-                                <tr>
-                                    <th>X axis</th>
-                                    <th>Y axis</th>
-                                    <th>Z axis</th>
-                                </tr>
-                                </thead></table>
+                        <thead>
+                            <tr>
+                                <th>X axis</th>
+                                <th>Y axis</th>
+                                <th>Z axis</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <br></br>
+                    <div className="col s6 centered" style={{marginTop:"3%"}}>
+                                RL Agent's Next State
+                    </div>
                 </div>
                 <div className="row" style={{overflowY:"scroll",maxHeight:"270px",margin:"0"}}>
                         <div className="col s6">
