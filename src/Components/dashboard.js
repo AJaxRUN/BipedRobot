@@ -22,7 +22,7 @@ const Dashboard = (props) => {
 
     return(
         <div>
-            <div className="row">
+            <div className="row" style={{marginBottom:"0"}}>
                 <p className="col s5 offset-s4 line-1 anim-typewriter" style = {{fontSize: "500%"}}>BOT-CR34 CP</p>
             </div>
             <div className="row">
