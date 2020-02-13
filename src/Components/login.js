@@ -1,7 +1,7 @@
 import React, { useState} from 'react'
 import {withRouter} from 'react-router-dom'
 import '../../assets/css/login.css'
-const axios = require('axios')
+import axios from 'axios'
 
 const Login = props => {
     let [state, setLogin] = useState({
@@ -30,16 +30,18 @@ const Login = props => {
         }
     let submitHandler = (e) => {
             e.preventDefault();
-            axios({
-                method: 'POST',
-                // headers: {
-                //     'Content-Type': 'multipart/form-data'
-                //   },
-                url: 'http://127.0.0.1:5000/validate',
-                data: {
-                  pass: document.getElementById("password").value
-                }
-              }).then(response =>{
+            // axios({
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'multipart/form-data'
+            //       },
+            //     url: '/validate',
+            //     data: {
+            //       pass: document.getElementById("password").value
+            //     }
+            //   })
+            axios.post("/validate",{pass: document.getElementById("password").value}
+            ).then(response =>{
                 if(response.data === "success") {
                     props.history.push("/dashboard");
                 }
@@ -49,7 +51,12 @@ const Login = props => {
                         mytext:"Incorrect Password"
                     });
                 }
-            });
+            }).catch(error => {
+                console.log(error);
+                setLogin({
+                login: false,
+                mytext:"Unable to connect to network!!"
+            })});
     }
         return(
             <div className="myContainer">

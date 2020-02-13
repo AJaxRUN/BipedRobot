@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Login from './Components/login'
 import Dashboard from './Components/dashboard'
+import axios from 'axios'
+
+// Axios Defaults 
+axios.defaults.baseURL = "http://127.0.0.1:5000"
+
 
 class App extends Component {
     render() {
