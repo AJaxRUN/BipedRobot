@@ -1,17 +1,19 @@
-import React, { useState} from 'react'
+import React, { useState, useContext } from 'react'
 import {withRouter} from 'react-router-dom'
 import '../../assets/css/login.css'
 import axios from 'axios'
+import AuthContext from "../context/context"
 
 const Login = props => {
+    const authContext = useContext(AuthContext)
     let [state, setLogin] = useState({
-        login: true,
+        error: false,
         mytext:"Enter password to initiate connection"
     });
     let onChangeHandler = ()=> {
-        if(!state.login) {
+        if(state.error) {
             setLogin({
-                login: true,
+                error: false,
                 mytext:"Enter password to initiate connection"
             });
         }
@@ -43,27 +45,34 @@ const Login = props => {
             axios.post("/validate",{pass: document.getElementById("password").value}
             ).then(response =>{
                 if(response.data === "success") {
+                    setLogin({
+                        error:false,
+                        mytext:"Welcome back!"
+                    });
+                    authContext.login = true;
                     props.history.push("/dashboard");
                 }
                 else {
                     setLogin({
-                        login:false,
+                        error:true,
                         mytext:"Incorrect Password"
                     });
                 }
             }).catch(error => {
                 console.log(error);
                 setLogin({
-                login: false,
+                error: false,
                 mytext:"Unable to connect to network!!"
             })});
     }
+    let msg = props.location.msg?props.location.msg:state.mytext
+    props.location.msg = null 
         return(
             <div className="myContainer">
                 <div className="myContent">
                     <form onSubmit={submitHandler}>
                         <h1>ACCESS BOT-CR34</h1><hr />
-                        <h4 style={{fontSize:30}}>{state.mytext}</h4><br />
+                        <h4 style={{fontSize:30}}>{msg}</h4><br />
                         <input onChange={onChangeHandler} style={myStyle} id="password" type="password" autoFocus/>
                     </form>
                 </div>

@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, useContext} from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Login from './Components/login'
@@ -17,6 +17,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/" exact component={Login} />
                         <Route path="/dashboard" component={Dashboard} />
+                        <Route render={() => <h1>Error 404!! Don't mess around -_- </h1>} />
                     </Switch>
                 </div>
             </BrowserRouter>
