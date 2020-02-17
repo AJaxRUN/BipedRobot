@@ -1,3 +1,4 @@
+
 var path = require('path');
 var HtmlWebpackPlugin =  require('html-webpack-plugin');
 
@@ -7,7 +8,7 @@ module.exports = {
         path : path.resolve(__dirname , 'dist'),
         filename: 'index_bundle.js'
     },
-    mode:'development',
+    mode:'production',
     module : {
         rules : [
             {test : /\.js$/, use:'babel-loader', exclude: /node_modules/},
@@ -25,5 +26,5 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
       },
-    devtool: "cheap-module-eval-source-map"
+    devtool: "none"
 }
