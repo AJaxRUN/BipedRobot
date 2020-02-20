@@ -3,7 +3,11 @@ import json
 from flask_cors import CORS
 import sys
 import socket, threading
+from flask_socketio import SocketIO
+
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'arjun'
+socketio = SocketIO(app,  cors_allowed_origins="*")
 CORS(app)
 
 @app.route('/validate',methods=['POST'])
@@ -15,30 +19,28 @@ def validate():
         else:
             return "failed"
 
-def Start_Talking():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    HOST = ''
-    PORT = 1100
-    try:
-        s.bind((HOST, PORT))
-    except socket.error as msg:
-        print('Bind failed. Error Code : ', msg)
-        sys.exit()
-        
-    print('Socket bind complete')
+# @app.route('/connect')
+# def connect_to_bot():
+#     socketio.send('initiate')
 
-    #Start listening on socket
-    s.listen(10)
-    while True:
-        message = str(input())
-        s.send(message.encode('utf-8'))
-        data = s.recv(1024)
-        a = data.decode("utf-8") 
-        print(a)
+@socketio.on('message')
+def can_u_hear_me(msg):
+    # values = list(map(float, msg.split()))
+    # if len(values) == 3:
+    socketio.send(msg, broadcast=True)
+    # if msg == "yes":
+    #     Start_Talking()
+    # else:
+    #     socketio.send("Bot is sleeping!", broadcast = True)
+# @app.route('/disconnect')
+# def disconnect():
+#     socketio.close_room()
+@socketio.on('end')
+def disconnect():
+    socket.disconnect(0)
+# def Start_Talking():
+#     pass
 
 
 if __name__ =='__main__':
-    t = threading.Thread(target=Start_Talking)
-    t.daemon = True
-    t.start()
-    app.run(debug=True)
+    socketio.run(app)

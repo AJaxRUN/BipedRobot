@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Test</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+<body>
+    <button onclick="somefunc()">click here</button>
+    <div id="message"></div>
+    <script type="text/javascript" charset="utf-8">
+    
+    // $(document).ready(function() {
+        var socket = io.connect("http://localhost:5000");
+        // var socket = io();
+        socket.on('connect', function() {
+            console.log('Connected to bot!');
+        });
+        socket.on('message', function(msg){
+            $("#message").append('<p>'+msg+'</p>');
+        });
+    // });
+    function somefunc() {
+            setInterval(function(){ 
+                console.log('Sending 22.3 -21 -0.9');
+                socket.send('22.3 -21 -0.9'); 
+                console.log('Sending 100 100 010 1001 100 100');
+                socket.send('100 100 010 1001 100 100'); 
+            }, 200);
+            
+        }
+</script>
+</body>
+</html>

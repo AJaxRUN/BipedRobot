@@ -3,6 +3,8 @@ import "../../assets/css/mainComponent.css"
 import "../../assets/css/orb.scss"
 // import "../../assets/css/materialize/js/materialize"
 // import "../../assets/css/materialize/css/materialize.min.css"
+import eavesdrop from '../../assets/js/LoadData'
+import axios from 'axios'
 
 const orb = <div className='wrap'>
 <div className='c'></div>
@@ -294,11 +296,14 @@ class MainComponent extends Component {
         if(!this.state.switchBtn) {
             this.switchBtnCls.pop()
             this.switchBtnCls.push("pulse", "blue")
+            eavesdrop("connect");
         }
         else {
             this.switchBtnCls.pop()
             this.switchBtnCls.pop()
             this.switchBtnCls.push("grey")
+            eavesdrop('disconnect');
+            // axios.get("/disconnect");
         }
         this.setState({
             switchBtn: !this.state.switchBtn
